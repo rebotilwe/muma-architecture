@@ -15,18 +15,18 @@ import Kaelo4 from '../assets/images/kaelo4.jpg';
 import Kaelo5 from '../assets/images/kaelo5.jpg';
 
 // Varsity Living Images
-import Varsity1 from '../assets/images/Varsity1.jpg';
-import Varsity2 from '../assets/images/Varsity2.jpg';
-import Varsity3 from '../assets/images/Varsity3.jpg';
-import Varsity4 from '../assets/images/Varsity4.jpg';
-import Varsity5 from '../assets/images/Varsity5.jpg';
+import Varsity1 from '../assets/images/varsity1.jpg';
+import Varsity2 from '../assets/images/varsity2.jpg';
+import Varsity3 from '../assets/images/varsity3.jpg';
+import Varsity4 from '../assets/images/varsity4.jpg';
+import Varsity5 from '../assets/images/varsity5.jpg';
 
 // Thuto Residence Images
-import Thuto1 from '../assets/images/Thuto1.jpeg';
-import Thuto2 from '../assets/images/Thuto2.jpeg';
-import Thuto3 from '../assets/images/Thuto3.jpeg';
-import Thuto4 from '../assets/images/Thuto4.png';
-import Thuto5 from '../assets/images/Thuto5.jpeg';
+import Thuto1 from '../assets/images/thuto1.jpeg';
+import Thuto2 from '../assets/images/thuto2.jpeg';
+import Thuto3 from '../assets/images/thuto3.jpeg';
+import Thuto4 from '../assets/images/thuto4.png';
+import Thuto5 from '../assets/images/thuto5.jpeg';
 
 // Elnita 2 Images
 import Elnita1 from '../assets/images/Elnita1.jpg';

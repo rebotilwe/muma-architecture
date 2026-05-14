@@ -10,7 +10,7 @@ import { services } from '@/lib/projectsData';
 // Import your downloaded images
 import Celestial1 from '../assets/images/Celestial1.jpg';
 import Winchester1 from '../assets/images/Wincherster1.jpg';
-import Varsity1 from '../assets/images/Varsity1.jpg';
+import Varsity1 from '../assets/images/varsity1.jpg';
 import Thuto1 from '../assets/images/Thuto1.jpeg';
 import Kaelo1 from '../assets/images/kaelo1.jpg';
 
