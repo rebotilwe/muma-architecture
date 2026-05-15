@@ -18,7 +18,8 @@ export default function Footer() {
       {/* Giant Watermark */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="font-display text-[20vw] font-light text-white/[0.02] leading-none">
-          MUMRA
+          MUMA
+
         </span>
       </div>
 
@@ -33,12 +34,12 @@ export default function Footer() {
               {/* Logo Image */}
               <img 
                 src={logo} 
-                alt="MUMRA Logo" 
+                alt="MUMALogo" 
                 className="h-12 w-auto object-contain"
               />
               <div className="flex flex-col">
                 <h3 className="font-display text-2xl font-light tracking-wider text-alabaster leading-tight">
-                  MUMRA
+                  MUMA
                 </h3>
                 <span className="text-[9px] tracking-[0.2em] uppercase text-gold/60 font-body leading-tight">
                   Architecture & Investments
@@ -95,7 +96,7 @@ export default function Footer() {
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-4">
             <p className="text-xs text-alabaster/40">
-              © {new Date().getFullYear()} MUMRA Architecture Construction & Property Investments. All rights reserved.
+              © {new Date().getFullYear()} MUMA Architecture Construction & Property Investments. All rights reserved.
             </p>
             <p className="text-xs text-alabaster/40">
               A subsidiary of the Be More Group

@@ -39,13 +39,13 @@ export default function Navbar() {
             {/* Logo Image */}
             <img 
               src={logo} 
-              alt="MUMRA Logo" 
+              alt="MUMA Logo" 
               className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
             {/* Logo Text */}
             <div className="flex flex-col">
               <span className="font-display text-xl font-light tracking-wider text-alabaster leading-tight">
-                MUMRA
+                MUMA
               </span>
               <span className="text-[8px] tracking-[0.2em] uppercase text-gold/70 font-body leading-tight">
                 Architecture & Investments
@@ -106,7 +106,7 @@ export default function Navbar() {
               >
                 <img 
                   src={logo} 
-                  alt="MUMRA Logo" 
+                  alt="MUMA Logo" 
                   className="h-16 w-auto object-contain"
                 />
               </motion.div>
