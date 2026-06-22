@@ -14,7 +14,7 @@ const navLinks = [
 
 // External links for dropdown
 const groupLinks = [
-  { label: 'PORMAT', url: 'https://pormat.co.za/', description: 'Construction & Development' },
+  { label: 'PORMAT', url: 'https://www.pormat.co.za/', description: 'Construction & Development' },
   { label: 'MUMA Consulting', url: 'https://www.muma.co.za/', description: 'Professional Services' },
 ];
 
@@ -83,7 +83,7 @@ export default function Navbar() {
 
             {/* 2. Legacy Project Link */}
             <a
-              href="https://www.muma.co.za/"
+              href="https://legacy-projects.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[12px] tracking-[0.15em] uppercase font-body text-white/70 hover:text-yellow-600 transition-colors duration-300 whitespace-nowrap"
@@ -211,7 +211,7 @@ export default function Navbar() {
                 transition={{ delay: 0.3 }}
               >
                 <a
-                  href="https://www.muma.co.za/"
+                  href="https://legacy-projects.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-display text-3xl font-light tracking-wider text-white hover:text-yellow-600 transition-colors"
