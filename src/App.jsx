@@ -23,7 +23,7 @@ const AuthenticatedApp = () => {
       <div className="fixed inset-0 flex items-center justify-center bg-obsidian">
         <div className="flex flex-col items-center gap-4">
           <div className="w-8 h-8 border-2 border-gold/20 border-t-gold rounded-full animate-spin"></div>
-          <span className="font-display text-lg text-alabaster/40 tracking-wider">MUMA</span>
+          <span className="font-display text-lg text-alabaster/40 tracking-wider">BeMore</span>
         </div>
       </div>
     );
