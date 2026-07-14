@@ -126,7 +126,7 @@ export default function Services() {
         <div className="absolute inset-0">
           <img
             src={Winchester1}
-            alt="Winchester Heights development process"
+            alt="Winchester Hills development process"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-black/90" />

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const stats = [
   { value: 'R500M+', label: 'Asset Portfolio' },
-  { value: 'R10B', label: 'Pipeline Projects' },
+  { value: 'R3.9B', label: 'Development Pipeline' },
   { value: '18+', label: 'Years Experience' },
 ];
 

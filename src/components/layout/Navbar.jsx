@@ -3,6 +3,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Adjust this filename to match whatever your logo file is actually called in assets/images
+import Logo from '../../assets/images/bemore.jpg';
+
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
@@ -34,7 +37,6 @@ export default function Navbar() {
     setDropdownOpen(false);
   }, [location]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = 'hidden';
@@ -46,7 +48,6 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (!e.target.closest('.dropdown-container')) {
@@ -63,21 +64,17 @@ export default function Navbar() {
         scrolled ? 'bg-black/90 backdrop-blur-xl border-b border-yellow-600/10' : 'bg-transparent'
       }`}>
         <div className="mx-auto px-4 sm:px-6 lg:px-[5vw] flex items-center justify-between h-16 sm:h-20">
-          {/* Logo - Responsive sizing */}
+          {/* Logo - now an image instead of text wordmark */}
           <Link to="/" className="flex items-center gap-2 group flex-shrink-0">
-            <div className="flex flex-col leading-tight">
-              <span className="font-display text-lg sm:text-xl font-bold tracking-tight text-white">
-                Be<span className="text-yellow-600">More</span>
-              </span>
-              <span className="text-[7px] sm:text-[8px] tracking-[0.25em] uppercase text-yellow-600/60 font-body">
-                Properties
-              </span>
-            </div>
+            <img
+              src={Logo}
+              alt="BeMore Properties"
+              className="h-9 sm:h-11 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation - Visible on large screens */}
           <div className="hidden xl:flex items-center gap-4 xl:gap-6">
-            {/* Main Navigation Links */}
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -92,7 +89,6 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Legacy Project Link - Updated to MUMA Consulting (Legacy Project) */}
             <a
               href="https://legacy-projects.netlify.app/"
               target="_blank"
@@ -102,7 +98,6 @@ export default function Navbar() {
               MUMA Investment (Legacy Project)
             </a>
 
-            {/* Group Companies Dropdown */}
             <div className="relative dropdown-container">
               <button
                 onClick={(e) => {
@@ -117,7 +112,6 @@ export default function Navbar() {
                 <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Dropdown Menu */}
               <AnimatePresence>
                 {dropdownOpen && (
                   <motion.div
@@ -147,7 +141,6 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Book Consultation - Primary CTA */}
             <Link
               to="/contact"
               className="ml-2 px-4 xl:px-6 py-2 xl:py-2.5 bg-yellow-600 text-black text-[10px] xl:text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-yellow-500 transition-all duration-300 whitespace-nowrap rounded-lg shadow-lg shadow-yellow-600/20"
@@ -156,7 +149,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button - Visible on smaller screens */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="xl:hidden text-white p-2 hover:text-yellow-600 transition-colors z-50 relative"
@@ -167,7 +159,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Full-screen Mobile Menu - Enhanced for all mobile sizes */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -178,24 +169,20 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl flex items-center justify-center px-4"
           >
             <div className="flex flex-col items-center gap-6 sm:gap-8 w-full max-w-md mx-auto">
-              {/* Logo in mobile menu */}
+              {/* Logo in mobile menu - also switched to image */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
                 className="mb-2 sm:mb-4 text-center"
               >
-                <div className="flex flex-col">
-                  <span className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-                    Be<span className="text-yellow-600">More</span>
-                  </span>
-                  <span className="text-[8px] sm:text-[10px] tracking-[0.3em] uppercase text-yellow-600/60 mt-1">
-                    Properties
-                  </span>
-                </div>
+                <img
+                  src={Logo}
+                  alt="BeMore Properties"
+                  className="h-16 sm:h-20 w-auto object-contain mx-auto"
+                />
               </motion.div>
 
-              {/* Mobile Nav Links - Scrollable if many items */}
               <div className="flex flex-col items-center gap-4 sm:gap-6 overflow-y-auto max-h-[60vh] w-full">
                 {navLinks.map((link, i) => (
                   <motion.div
@@ -218,7 +205,6 @@ export default function Navbar() {
                   </motion.div>
                 ))}
 
-                {/* Legacy Project - Mobile - Updated to MUMA Consulting (Legacy Project) */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -236,7 +222,6 @@ export default function Navbar() {
                   </a>
                 </motion.div>
 
-                {/* Group Companies - Mobile */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -259,7 +244,6 @@ export default function Navbar() {
                 </motion.div>
               </div>
 
-              {/* Book Consultation - Mobile CTA */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

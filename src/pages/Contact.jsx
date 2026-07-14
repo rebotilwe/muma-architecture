@@ -65,21 +65,27 @@ const Select = ({ value, onValueChange, placeholder, options = [] }) => (
 );
 
 const contactInfo = [
-  { icon: MapPin, label: 'Address', value: '125 Madiba Rd, Pretoria CBD, South Africa' },
+  { icon: MapPin, label: 'Address', value: '125 Madiba Street, Pretoria Central, 0002' },
   { icon: Phone, label: 'Phone', value: '+27 (012) 546 0966' },
   { icon: Mail, label: 'Email', value: 'info@bemoreproperties.co.za' },
   { icon: Clock, label: 'Office Hours', value: 'Monday – Friday: 08:00 – 17:00' },
 ];
 
-// Updated inquiry options with generic and specific ones
+// Inquiry options — each value is now unique (see note below)
 const inquiryOptions = [
   { value: 'property-development', label: 'Property Development' },
   { value: 'project-management', label: 'Project Management' },
   { value: 'architecture', label: 'Architecture & Design' },
-  { value: 'property-management', label: 'Property Management' },
+  { value: 'property-management-services', label: 'Property Management' },
   { value: 'partnership', label: 'Partnership / Joint Venture' },
   { value: 'general', label: 'General Inquiry' },
 ];
+// NOTE: 'Project Management' and 'Property Management' previously both used the
+// value 'property-management'. That caused a React duplicate-key warning on the
+// <option> elements, and meant selecting 'Project Management' would silently
+// submit 'property-management' as the inquiry type — so submissions could never
+// actually distinguish the two. Property Management now uses
+// 'property-management-services' instead.
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);

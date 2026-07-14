@@ -34,11 +34,11 @@ export default function AboutPreview() {
             <span className="text-yellow-600">Expert Consulting</span>
           </h2>
           <p className="text-base text-gray-400 leading-relaxed mb-4">
-            BeMore Properties is a leading African property development and consulting firm. 
+            BeMore Properties is a leading African property development firm, part of the BeMore Group of companies.
             We have grown our property portfolio to over R500 million over 18 years of built environment expertise.
           </p>
           <p className="text-base text-gray-400 leading-relaxed mb-8">
-            Whether you're starting your first development or expanding your portfolio, 
+            Whether you're starting your first development or expanding your portfolio,
             our team is ready to make your vision a reality.
           </p>
           <Link

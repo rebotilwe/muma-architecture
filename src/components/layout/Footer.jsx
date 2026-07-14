@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, ArrowUpRight, ExternalLink } from 'lucide-react';
-// import logo from '../../assets/images/logo.png'; // Uncomment when you have BeMore logo
+import logo from '../../assets/images/bemore.jpg';
 
 const footerLinks = [
   { label: 'Home', path: '/' },
@@ -11,7 +11,6 @@ const footerLinks = [
   { label: 'Contact', path: '/contact' },
 ];
 
-// Group company links
 const groupLinks = [
   { label: 'PORMAT', url: 'https://pormat.co.za/' },
   { label: 'MUMA Consulting', url: 'https://www.muma.co.za/' },
@@ -21,7 +20,6 @@ const groupLinks = [
 export default function Footer() {
   return (
     <footer className="relative bg-black border-t border-yellow-600/10 overflow-hidden">
-      {/* Giant Watermark - Updated to BeMore */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
         <span className="font-display text-[20vw] font-light text-white/[0.02] leading-none">
           BeMore
@@ -29,19 +27,17 @@ export default function Footer() {
       </div>
 
       <div className="relative px-[5vw] pt-20 pb-8">
-        {/* Gold line */}
         <div className="w-16 h-px bg-yellow-600 mb-12" />
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           {/* Column 1 - Brand */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              {/* Logo Image - Commented out until you have BeMore logo */}
-              {/* <img 
-                src={logo} 
-                alt="BeMore Properties Logo" 
+              <img
+                src={logo}
+                alt="BeMore Properties Logo"
                 className="h-12 w-auto object-contain"
-              /> */}
+              />
               <div className="flex flex-col">
                 <h3 className="font-display text-2xl font-bold tracking-tight text-white leading-tight">
                   Be<span className="text-yellow-600">More</span>
@@ -98,7 +94,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start gap-3 group">
                 <MapPin className="w-4 h-4 text-yellow-600 mt-0.5 shrink-0" />
-                <span className="text-sm text-white/60 group-hover:text-white transition-colors">125 Madiba Road, Pretoria CBD, South Africa</span>
+                <span className="text-sm text-white/60 group-hover:text-white transition-colors">125 Madiba Street, Pretoria Central, 0002</span>
               </div>
               <div className="flex items-center gap-3 group">
                 <Phone className="w-4 h-4 text-yellow-600 shrink-0" />
@@ -116,7 +112,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <p className="text-xs text-white/40">
@@ -126,8 +121,7 @@ export default function Footer() {
               A subsidiary of the Be More Group
             </p>
           </div>
-          
-          {/* Developer Credit */}
+
           <a
             href="https://kasi-code.netlify.app/"
             target="_blank"

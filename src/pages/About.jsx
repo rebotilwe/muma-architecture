@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Target, Eye, Shield, Building2, TrendingUp, Diamond } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-// Import your downloaded images
 import Winchester1 from '../assets/images/Wincherster4.jpg';
 import Celestial1 from '../assets/images/Celestial1.jpg';
 import Thuto1 from '../assets/images/Thuto1.jpeg';
 import Kaelo1 from '../assets/images/kaelo1.jpg';
 import Hub1 from '../assets/images/village1.jpg';
 
-// Animated Section Component
 const AnimatedSection = ({ children, delay = 0, className = "" }) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
@@ -23,7 +21,6 @@ const AnimatedSection = ({ children, delay = 0, className = "" }) => (
   </motion.div>
 );
 
-// Section Label Component
 const SectionLabel = ({ children }) => (
   <div className="flex items-center gap-4 mb-4">
     <div className="w-8 h-px bg-yellow-600" />
@@ -33,27 +30,25 @@ const SectionLabel = ({ children }) => (
   </div>
 );
 
-// Glass Card Component
 const GlassCard = ({ children, className = "" }) => (
   <div className={`bg-white/5 backdrop-blur-sm border border-yellow-600/10 rounded-lg ${className}`}>
     {children}
   </div>
 );
 
-// Gold Line Component
 const GoldLine = ({ className = "" }) => (
   <div className={`w-full h-px bg-yellow-600/10 ${className}`} />
 );
 
+// Timeline updated to match documented company history
 const milestones = [
-  { year: '2008', title: 'Foundation', description: 'BeMore Properties established as an architecture and construction firm in Pretoria, South Africa.' },
-  { year: '2015', title: 'Portfolio Growth', description: 'Property portfolio reaches R100 million through strategic residential and commercial developments.' },
-  { year: '2020', title: 'Student Housing', description: 'Entry into purpose-built student accommodation sector, addressing critical housing demand near universities.' },
-  { year: '2022', title: 'Eastway Acquisition', description: 'Acquired Eastway Apartments and converted to a 540-bed student accommodation, reaching R300M in assets.' },
-  { year: '2024', title: 'Billion-Rand Vision', description: 'Pipeline projects exceed R1 billion. Expansion into mixed-use developments and investment partnerships.' },
+  { year: '2006', title: 'Foundation', description: 'BeMore\u2019s journey begins as Muma Construction, laying the technical foundation in architecture and engineering.' },
+  { year: '2011', title: 'Muma Investments', description: 'Formalized growth with the establishment of Muma Investments, expanding into property development.' },
+  { year: '2015', title: 'Pormat Property Group', description: 'Founded Pormat Property Group, a fully registered real estate company handling property management for the group\u2019s portfolio.' },
+  { year: '2018', title: 'Muma Consulting', description: 'Established Muma Consulting to house architecture and development consulting services.' },
+  { year: '2023', title: 'BeMore Properties', description: 'Rebranded as BeMore Properties, now holding over R500 million in assets and a development pipeline exceeding R1 billion.' },
 ];
 
-// Updated values with the new content
 const values = [
   { 
     icon: Eye, 
@@ -77,7 +72,6 @@ const values = [
   },
 ];
 
-// Additional stats for about page - removed 50+ team members
 const stats = [
   { value: 'R500M+', label: 'Assets Under Management', icon: TrendingUp },
   { value: '18+', label: 'Years Experience', icon: Building2 },
@@ -86,7 +80,7 @@ const stats = [
 export default function About() {
   return (
     <div className="bg-black">
-      {/* Hero - Using Celestial image */}
+      {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -106,7 +100,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Intro - Updated with project management, development consulting, and architecture */}
+      {/* Intro */}
       <section className="py-24 px-[5vw]">
         <div className="grid lg:grid-cols-2 gap-16">
           <AnimatedSection>
@@ -116,17 +110,17 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-white/60 leading-relaxed">
               <p>
-                BeMore Properties is a leading project management, architecture, and development consulting firm. 
+                BeMore Properties is a leading project management, architecture, and development consulting firm.
                 With over 18 years in the built environment, we have developed a value proposition built with the customer in mind.
               </p>
               <p>
-                Our results and experience working with clients is evident in the projects we have taken to site. 
-                From training aspiring developers to having projects started and fully delivered on time, 
+                Our results and experience working with clients is evident in the projects we have taken to site.
+                From training aspiring developers to having projects started and fully delivered on time,
                 we are the definitive partner for property entrepreneurs across South Africa.
               </p>
               <p>
-                We have grown our property portfolio to over R500 million and are pressing toward the R10 billion mark, 
-                with a pipeline of transformative residential, student accommodation, and mixed-use developments.
+                We have grown our property portfolio to over R500 million, with a development pipeline exceeding R1 billion
+                across transformative residential, student accommodation, and mixed-use developments.
               </p>
             </div>
           </AnimatedSection>
@@ -135,7 +129,7 @@ export default function About() {
             <div className="relative">
               <img
                 src={Winchester1}
-                alt="Winchester Heights - Premium student accommodation development"
+                alt="Winchester Hills - Premium residential development"
                 className="w-full aspect-square object-cover rounded-lg"
               />
             </div>
@@ -145,7 +139,7 @@ export default function About() {
 
       <GoldLine className="mx-[5vw]" />
 
-      {/* Stats Section - Updated with 2 stats instead of 3 */}
+      {/* Stats */}
       <section className="py-16 px-[5vw]">
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {stats.map((stat, i) => (
@@ -162,7 +156,7 @@ export default function About() {
 
       <GoldLine className="mx-[5vw]" />
 
-      {/* Values - Updated with new content */}
+      {/* Values */}
       <section className="py-24 px-[5vw]">
         <AnimatedSection>
           <SectionLabel>Our Foundation</SectionLabel>
@@ -206,7 +200,7 @@ export default function About() {
 
       <GoldLine className="mx-[5vw]" />
 
-      {/* CTA with background image */}
+      {/* CTA */}
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img

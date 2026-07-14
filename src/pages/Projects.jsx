@@ -7,6 +7,11 @@ import Varsity1 from '../assets/images/Varsity1.jpg';
 import Thuto1 from '../assets/images/Thuto1.jpeg';
 import Celestial1 from '../assets/images/Celestial1.jpg';
 import Kaelo1 from '../assets/images/kaelo1.jpg';
+import Village from '../assets/images/Village1.jpg';
+
+// Import real Ga-Rankuwa renders (from Mr Sthole's MUMA/OTL Group/BukhoBuhle Architects documents)
+import GaRankuwaResidential1 from '../assets/images/ga-rankuwa-residential-1.jpg';
+import GaRankuwaStudentAccommodation1 from '../assets/images/ga-rankuwa-student-accommodation-1.jpg';
 
 // Animated Section Component
 const AnimatedSection = ({ children, delay = 0, className = "" }) => (
@@ -110,25 +115,25 @@ const projectsData = [
     type: 'BeMore Project',
     image: Kaelo1,
   },
-  
-  // New Projects from Documents (Ga-Rankuwa Developments)
+
+  // Ga-Rankuwa Developments (Erf 3782 & Erf 2903) — now using real MUMA/OTL Group renders
   {
     slug: 'ga-rankuwa-residential',
     title: 'Ga-Rankuwa Residential Development',
     category: 'Residential',
-    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    location: 'Ga-Rankuwa Unit 9, Pretoria (Erf 3782)',
     status: 'Ongoing',
     type: 'BeMore Project',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
+    image: GaRankuwaResidential1,
   },
   {
     slug: 'ga-rankuwa-student-accommodation',
     title: 'Ga-Rankuwa Student Accommodation',
     category: 'Student Housing',
-    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    location: 'Ga-Rankuwa Unit 9, Pretoria (Erf 2903)',
     status: 'Ongoing',
     type: 'BeMore Project',
-    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&h=400&fit=crop',
+    image: GaRankuwaStudentAccommodation1,
   },
   
   // Other BeMore Properties Own Projects
@@ -153,9 +158,9 @@ const projectsData = [
   {
     slug: 'elnita',
     title: 'Elnita',
-    category: 'Coming Soon',
+    category: 'Completed',
     location: 'Pretoria, South Africa',
-    status: 'Ongoing',
+    status: 'Completed',
     type: 'BeMore Project',
     image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop',
   },

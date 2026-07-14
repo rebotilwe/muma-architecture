@@ -53,8 +53,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-8 text-base sm:text-lg text-white/60 max-w-xl leading-relaxed font-body font-light"
         >
-          A turnkey property development firm creating and capturing value across South Africa. 
-          Over R500 million in developed assets and pressing toward R10 billion.
+          A turnkey property development firm creating and capturing value across South Africa.
+          Over R500 million in developed assets, building toward a R100 billion diverse portfolio by 2035.
         </motion.p>
 
         <motion.div

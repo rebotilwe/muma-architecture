@@ -8,6 +8,14 @@ import Varsity1 from '../assets/images/Varsity1.jpg';
 import Thuto1 from '../assets/images/Thuto1.jpeg';
 import Celestial1 from '../assets/images/Celestial1.jpg';
 import Kaelo1 from '../assets/images/kaelo1.jpg';
+import Village from '../assets/images/Village1.jpg';
+
+// Real Ga-Rankuwa renders (from Mr Sthole's MUMA/OTL Group/BukhoBuhle Architects documents)
+import GaRankuwaResidential1 from '../assets/images/ga-rankuwa-residential-1.jpg';
+import GaRankuwaResidential2 from '../assets/images/ga-rankuwa-residential-2.jpg';
+import GaRankuwaStudentAccommodation1 from '../assets/images/ga-rankuwa-student-accommodation-1.jpg';
+import GaRankuwaStudentAccommodation2 from '../assets/images/ga-rankuwa-student-accommodation-2.jpg';
+import GaRankuwaStudentAccommodation3 from '../assets/images/ga-rankuwa-student-accommodation-3.jpg';
 
 // Complete Projects Data with new projects from documents
 const projectsData = [
@@ -81,39 +89,36 @@ const projectsData = [
     gallery: [Kaelo1],
   },
   
-  // New Projects from Documents
+  // Ga-Rankuwa Developments (Erf 3782 & Erf 2903) — real specs from MUMA/OTL Group/BukhoBuhle Architects documents
   {
     slug: 'ga-rankuwa-residential',
     title: 'Ga-Rankuwa Residential Development',
     category: 'Residential',
-    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    location: 'Ga-Rankuwa Unit 9, Pretoria (Erf 3782)',
     status: 'Ongoing',
     type: 'BeMore Project',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
-    description: 'A residential development comprising 24 three-bedroom units across three floors. This project is designed to provide quality housing in the growing Ga-Rankuwa area with modern amenities and secure living spaces.',
+    image: GaRankuwaResidential1,
+    description: 'A residential development on Erf 3782, Ga-Rankuwa Unit 9, comprising 24 units across four floors with a guard house and dedicated parking. Designed to provide quality, secure living spaces in the growing Ga-Rankuwa area.',
     details: {
-      sqm: '1,388m²',
+      sqm: '1,287m²',
       year: '2025',
       value: 'R65M',
-      units: '24 Units',
+      units: '120 Beds',
       coverage: '33%',
       parking: '12 Bays',
       height: '4 Storeys',
     },
-    gallery: [
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop',
-    ],
+    gallery: [GaRankuwaResidential1, GaRankuwaResidential2],
   },
   {
     slug: 'ga-rankuwa-student-accommodation',
     title: 'Ga-Rankuwa Student Accommodation',
     category: 'Student Housing',
-    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    location: 'Ga-Rankuwa Unit 9, Pretoria (Erf 2903)',
     status: 'Ongoing',
     type: 'BeMore Project',
-    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
-    description: 'A purpose-built student accommodation development with 60 units providing 300 beds. Includes communal areas, a shop, and modern facilities designed for student living and academic success.',
+    image: GaRankuwaStudentAccommodation1,
+    description: 'A purpose-built student accommodation development on Erf 2903, Ga-Rankuwa Unit 9, with 60 units providing 300 beds across four floors. Includes communal areas, a shop, and modern facilities designed for student living and academic success.',
     details: {
       sqm: '3,650m²',
       year: '2025',
@@ -123,10 +128,7 @@ const projectsData = [
       parking: '17 Bays',
       height: '4 Storeys',
     },
-    gallery: [
-      'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop',
-    ],
+    gallery: [GaRankuwaStudentAccommodation1, GaRankuwaStudentAccommodation2, GaRankuwaStudentAccommodation3],
   },
   
   // Partner Projects

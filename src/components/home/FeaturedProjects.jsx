@@ -4,40 +4,74 @@ import { ArrowRight, User } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import SectionLabel from '@/components/ui/SectionLabel';
 
-// Temporary placeholder data until images are provided
+// Team photos
+import KabeloSitholeImg from '../../assets/images/kabelo.jpeg';
+import MphoMunyaiImg from '../../assets/images/mpho.jpg';
+import SelmaPhofaImg from '../../assets/images/selma.jpg';
+import VictorMoagiImg from '../../assets/images/victor.jpg';
+import DandyMatamelaImg from '../../assets/images/dandy.jpg';
+import DollyChiloaneImg from '../../assets/images/dolly.jpg';
+
 const teamMembersData = [
   {
     id: 1,
-    name: 'John Doe',
-    role: 'CEO & Founder',
-    bio: 'Over 20 years of experience in property development and consulting.',
-    image: null // Will be replaced with actual image
+    name: 'Dandy Matamela',
+    role: 'Founder & Group CEO',
+    bio: 'Registered professional architect and strategic property developer with over 15 years of experience, having led the design, structuring, and execution of over 1,000 student and affordable housing beds.',
+    image: DandyMatamelaImg,
   },
   {
     id: 2,
-    name: 'Jane Smith',
-    role: 'Head of Project Management',
-    bio: 'Expert in delivering large-scale developments on time and within budget.',
-    image: null
+    name: 'Kabelo Sithole',
+    role: 'Chief Operating Officer',
+    bio: 'Oversees program execution, interdepartmental coordination, and delivery alignment across BeMore\u2019s active and pipeline projects.',
+    image: KabeloSitholeImg,
   },
   {
     id: 3,
-    name: 'Mike Johnson',
-    role: 'Senior Development Consultant',
-    bio: 'Specializes in feasibility studies and property valuation.',
-    image: null
+    name: 'Selma Phofa',
+    role: 'Head of Property Management',
+    bio: 'Leads property management systems with over 15 years in operations, managing a 1,472-bed portfolio.',
+    image: SelmaPhofaImg,
   },
   {
     id: 4,
-    name: 'Sarah Williams',
-    role: 'Architectural Lead',
-    bio: 'Passionate about sustainable and innovative design solutions.',
-    image: null
-  }
+    name: 'Dolly Chiloane',
+    role: 'HR & Compliance Lead',
+    bio: 'Manages HR policy and onboarding, with 5+ years in property development and sales.',
+    image: DollyChiloaneImg,
+  },
+  {
+    id: 5,
+    name: 'Rudolf Mokolo',
+    role: 'Business Development Lead',
+    bio: 'Professional Town Planner driving partnerships, project packaging, and stakeholder engagement, with 5+ years in property development.',
+    image: null,
+  },
+  {
+    id: 6,
+    name: 'Gcinile Luvuno',
+    role: 'Personal Assistant to the CEO',
+    bio: 'Supports the Founder and CEO across scheduling, coordination, and day-to-day operations.',
+    image: null,
+  },
+  {
+    id: 7,
+    name: 'Mpho Munyai',
+    role: 'Role to be confirmed',
+    bio: '',
+    image: MphoMunyaiImg,
+  },
+  {
+    id: 8,
+    name: 'Victor Moagi',
+    role: 'Role to be confirmed',
+    bio: '',
+    image: VictorMoagiImg,
+  },
 ];
 
-// Team Member Card Component
-const TeamMemberCard = ({ member, index }) => {
+const TeamMemberCard = ({ member }) => {
   return (
     <div className="group bg-gray-900/50 border border-gray-800 hover:border-yellow-600/30 rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-1">
       <div className="aspect-[4/3] bg-gray-800 flex items-center justify-center relative overflow-hidden">
@@ -45,7 +79,7 @@ const TeamMemberCard = ({ member, index }) => {
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-top"
           />
         ) : (
           <div className="flex flex-col items-center justify-center text-gray-600">
@@ -61,9 +95,11 @@ const TeamMemberCard = ({ member, index }) => {
         <p className="text-yellow-600 text-sm tracking-wider uppercase mb-3">
           {member.role}
         </p>
-        <p className="text-gray-400 text-sm leading-relaxed">
-          {member.bio}
-        </p>
+        {member.bio && (
+          <p className="text-gray-400 text-sm leading-relaxed">
+            {member.bio}
+          </p>
+        )}
       </div>
     </div>
   );
@@ -76,8 +112,6 @@ const AnimatedSectionWrapper = ({ children, delay = 0 }) => (
 );
 
 export default function TeamMembers() {
-  const teamMembers = teamMembersData.slice(0, 4);
-
   return (
     <section className="py-24 px-[5vw]">
       <AnimatedSectionWrapper>
@@ -86,20 +120,20 @@ export default function TeamMembers() {
           <h2 className="font-display text-4xl sm:text-5xl font-light text-alabaster">
             Meet Our Team
           </h2>
-          <Link
+          {/* <Link
             to="/about"
             className="flex items-center gap-2 text-gold text-sm tracking-wider uppercase hover:gap-4 transition-all duration-300"
           >
             View All
             <ArrowRight className="w-4 h-4" />
-          </Link>
+          </Link> */}
         </div>
       </AnimatedSectionWrapper>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {teamMembers.map((member, i) => (
+        {teamMembersData.map((member, i) => (
           <AnimatedSectionWrapper key={member.id} delay={i * 0.1}>
-            <TeamMemberCard member={member} index={i} />
+            <TeamMemberCard member={member} />
           </AnimatedSectionWrapper>
         ))}
       </div>
