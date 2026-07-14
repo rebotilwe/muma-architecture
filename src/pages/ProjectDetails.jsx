@@ -8,7 +8,7 @@ import Varsity1 from '../assets/images/Varsity1.jpg';
 import Thuto1 from '../assets/images/Thuto1.jpeg';
 import Celestial1 from '../assets/images/Celestial1.jpg';
 import Kaelo1 from '../assets/images/kaelo1.jpg';
-import Village from '../assets/images/Village1.jpg';
+
 
 // Real Ga-Rankuwa renders (from Mr Sthole's MUMA/OTL Group/BukhoBuhle Architects documents)
 import GaRankuwaResidential1 from '../assets/images/ga-rankuwa-residential-1.jpg';
