@@ -1,8 +1,193 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, MapPin, Calendar, Ruler, DollarSign, ChevronRight } from 'lucide-react';
+import { ArrowLeft, MapPin, Calendar, Ruler, DollarSign, ChevronRight, Building2, Users, ParkingSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { projectsData as projects } from '@/lib/projectsData';
+
+// Import project images
+import Varsity1 from '../assets/images/Varsity1.jpg';
+import Thuto1 from '../assets/images/Thuto1.jpeg';
+import Celestial1 from '../assets/images/Celestial1.jpg';
+import Kaelo1 from '../assets/images/kaelo1.jpg';
+
+// Complete Projects Data with new projects from documents
+const projectsData = [
+  // Existing Projects
+  {
+    slug: 'varsity-living',
+    title: 'Varsity Living',
+    category: 'Property Management',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Varsity1,
+    description: 'A premium student accommodation development designed for security, comfort, and modern living. Varsity Living provides high-quality housing for students in close proximity to major universities.',
+    details: {
+      sqm: '2,500m²',
+      year: '2021',
+      value: 'R45M',
+      units: '120 Beds',
+    },
+    gallery: [Varsity1],
+  },
+  {
+    slug: 'thuto-residence',
+    title: 'Thuto Residence',
+    category: 'Property Management',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Thuto1,
+    description: 'Thuto Residence offers purpose-built student accommodation with modern amenities, secure access, and a conducive environment for academic success.',
+    details: {
+      sqm: '3,200m²',
+      year: '2022',
+      value: 'R55M',
+      units: '150 Beds',
+    },
+    gallery: [Thuto1],
+  },
+  {
+    slug: 'the-celestial',
+    title: 'The Celestial',
+    category: 'Mixed Use',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Celestial1,
+    description: 'A landmark mixed-use development combining residential, commercial, and retail spaces in the heart of Pretoria. The Celestial redefines urban living with its modern design and strategic location.',
+    details: {
+      sqm: '8,500m²',
+      year: '2023',
+      value: 'R120M',
+      units: '48 Units',
+    },
+    gallery: [Celestial1,],
+  },
+  {
+    slug: 'kaelo-student-rez',
+    title: 'Kaelo Student Rez',
+    category: 'Property Management',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Kaelo1,
+    description: 'Kaelo Student Rez is a modern student accommodation facility offering comfortable living spaces, study areas, and recreational facilities for students.',
+    details: {
+      sqm: '2,800m²',
+      year: '2023',
+      value: 'R50M',
+      units: '100 Beds',
+    },
+    gallery: [Kaelo1],
+  },
+  
+  // New Projects from Documents
+  {
+    slug: 'ga-rankuwa-residential',
+    title: 'Ga-Rankuwa Residential Development',
+    category: 'Residential',
+    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    status: 'Ongoing',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+    description: 'A residential development comprising 24 three-bedroom units across three floors. This project is designed to provide quality housing in the growing Ga-Rankuwa area with modern amenities and secure living spaces.',
+    details: {
+      sqm: '1,388m²',
+      year: '2025',
+      value: 'R65M',
+      units: '24 Units',
+      coverage: '33%',
+      parking: '12 Bays',
+      height: '4 Storeys',
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&h=600&fit=crop',
+    ],
+  },
+  {
+    slug: 'ga-rankuwa-student-accommodation',
+    title: 'Ga-Rankuwa Student Accommodation',
+    category: 'Student Housing',
+    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    status: 'Ongoing',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
+    description: 'A purpose-built student accommodation development with 60 units providing 300 beds. Includes communal areas, a shop, and modern facilities designed for student living and academic success.',
+    details: {
+      sqm: '3,650m²',
+      year: '2025',
+      value: 'R85M',
+      units: '300 Beds',
+      coverage: '41%',
+      parking: '17 Bays',
+      height: '4 Storeys',
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&h=600&fit=crop',
+    ],
+  },
+  
+  // Partner Projects
+  {
+    slug: 'partner-student-housing',
+    title: 'Student Housing Development',
+    category: 'Property Management',
+    location: 'Johannesburg, South Africa',
+    status: 'Completed',
+    type: 'Partner Project',
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
+    description: 'A collaboration project delivering quality student housing in Johannesburg. This development showcases BeMore Properties\' ability to partner and deliver exceptional results.',
+    details: {
+      sqm: '4,200m²',
+      year: '2023',
+      value: 'R70M',
+      units: '180 Beds',
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&h=600&fit=crop',
+    ],
+  },
+  {
+    slug: 'partner-mixed-use',
+    title: 'Mixed Use Complex',
+    category: 'Mixed Use',
+    location: 'Cape Town, South Africa',
+    status: 'Ongoing',
+    type: 'Partner Project',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop',
+    description: 'A mixed-use development in Cape Town combining residential, retail, and office spaces. This project demonstrates BeMore Properties\' expertise in complex urban developments.',
+    details: {
+      sqm: '12,000m²',
+      year: '2025',
+      value: 'R200M',
+      units: '80 Units',
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop',
+    ],
+  },
+  {
+    slug: 'partner-residential',
+    title: 'Residential Estate',
+    category: 'Property Management',
+    location: 'Durban, South Africa',
+    status: 'Completed',
+    type: 'Partner Project',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+    description: 'A premium residential estate development in Durban, featuring modern homes with stunning views and world-class amenities.',
+    details: {
+      sqm: '15,000m²',
+      year: '2024',
+      value: 'R150M',
+      units: '60 Units',
+    },
+    gallery: [
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+    ],
+  },
+];
 
 // Animated Section Component
 const AnimatedSection = ({ children, delay = 0, className = "" }) => (
@@ -43,7 +228,7 @@ const Badge = ({ children, className = "" }) => (
 
 export default function ProjectDetails() {
   const { slug } = useParams();
-  const project = projects.find(p => p.slug === slug);
+  const project = projectsData.find(p => p.slug === slug);
 
   if (!project) {
     return (
@@ -62,6 +247,18 @@ export default function ProjectDetails() {
     { icon: Calendar, label: 'Year', value: project.details?.year || 'N/A' },
     { icon: DollarSign, label: 'Project Value', value: project.details?.value || 'N/A' },
   ];
+
+  // Additional specs for new projects
+  const extraSpecs = [];
+  if (project.details?.coverage) {
+    extraSpecs.push({ icon: Building2, label: 'Coverage', value: project.details.coverage });
+  }
+  if (project.details?.parking) {
+    extraSpecs.push({ icon: ParkingSquare, label: 'Parking', value: project.details.parking });
+  }
+  if (project.details?.height) {
+    extraSpecs.push({ icon: Building2, label: 'Height', value: project.details.height });
+  }
 
   return (
     <div className="bg-black">
@@ -84,12 +281,17 @@ export default function ProjectDetails() {
               <ArrowLeft className="w-4 h-4" />
               Back to Projects
             </Link>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
               <Badge className={project.status === 'Completed'
                 ? 'bg-emerald-600 text-white'
-                : 'bg-yellow-600/20 text-yellow-600'
+                : project.status === 'Ongoing'
+                ? 'bg-yellow-600 text-black'
+                : 'bg-blue-600 text-white'
               }>
                 {project.status}
+              </Badge>
+              <Badge className="bg-white/10 text-white/80 border border-white/10">
+                {project.type || 'BeMore Project'}
               </Badge>
               <span className="text-[11px] tracking-[0.2em] uppercase text-yellow-600/60">{project.category}</span>
             </div>
@@ -119,6 +321,23 @@ export default function ProjectDetails() {
             </AnimatedSection>
           ))}
         </div>
+        {extraSpecs.length > 0 && (
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-6 pt-6 border-t border-yellow-600/10">
+            {extraSpecs.map((item, i) => (
+              <AnimatedSection key={item.label} delay={i * 0.1}>
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-yellow-600/10 flex items-center justify-center shrink-0">
+                    <item.icon className="w-5 h-5 text-yellow-600" />
+                  </div>
+                  <div>
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-1">{item.label}</p>
+                    <p className="text-lg font-display text-white">{item.value}</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Description + Units */}
@@ -154,16 +373,16 @@ export default function ProjectDetails() {
             <div className="space-y-4 mt-6">
               <Link
                 to="/contact"
-                className="flex items-center justify-between p-4 bg-yellow-600 text-black hover:bg-yellow-500 transition-colors group"
+                className="flex items-center justify-between p-4 bg-yellow-600 text-black hover:bg-yellow-500 transition-colors group rounded-lg"
               >
                 <span className="text-[13px] tracking-[0.1em] uppercase font-medium">Enquire About This Project</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
-                to="/investments"
-                className="flex items-center justify-between p-4 border border-yellow-600/30 text-yellow-600 hover:bg-yellow-600/5 transition-colors group"
+                to="/contact"
+                className="flex items-center justify-between p-4 border border-yellow-600/30 text-yellow-600 hover:bg-yellow-600/5 transition-colors group rounded-lg"
               >
-                <span className="text-[13px] tracking-[0.1em] uppercase">Investment Opportunities</span>
+                <span className="text-[13px] tracking-[0.1em] uppercase">Schedule Consultation</span>
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

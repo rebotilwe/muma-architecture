@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+// Import existing project images
+import Varsity1 from '../assets/images/Varsity1.jpg';
+import Thuto1 from '../assets/images/Thuto1.jpeg';
+import Celestial1 from '../assets/images/Celestial1.jpg';
+import Kaelo1 from '../assets/images/kaelo1.jpg';
+
 // Animated Section Component
 const AnimatedSection = ({ children, delay = 0, className = "" }) => (
   <motion.div
@@ -40,9 +46,16 @@ const ProjectCard = ({ project, index }) => (
       <div className={`absolute top-4 right-4 px-3 py-1 text-[10px] tracking-wider uppercase rounded-full ${
         project.status === 'Completed'
           ? 'bg-emerald-600 text-white'
-          : 'bg-yellow-600 text-black'
+          : project.status === 'Ongoing'
+          ? 'bg-yellow-600 text-black'
+          : 'bg-blue-600 text-white'
       }`}>
         {project.status}
+      </div>
+      
+      {/* Project Type Badge */}
+      <div className="absolute top-4 left-4 px-3 py-1 text-[9px] tracking-wider uppercase rounded-full bg-black/70 text-white/80 border border-white/10">
+        {project.type || 'BeMore Project'}
       </div>
       
       <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -58,15 +71,147 @@ const ProjectCard = ({ project, index }) => (
   </Link>
 );
 
-// Projects Data - You'll need to import this from your data file
-import { projectsData as projects } from '@/lib/projectsData';
+// Complete Projects Data - Preserving all existing images
+const projectsData = [
+  // Existing Projects with their original images
+  {
+    slug: 'varsity-living',
+    title: 'Varsity Living',
+    category: 'Property Management',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Varsity1,
+  },
+  {
+    slug: 'thuto-residence',
+    title: 'Thuto Residence',
+    category: 'Property Management',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Thuto1,
+  },
+  {
+    slug: 'the-celestial',
+    title: 'The Celestial',
+    category: 'Mixed Use',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Celestial1,
+  },
+  {
+    slug: 'kaelo-student-rez',
+    title: 'Kaelo Student Rez',
+    category: 'Property Management',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: Kaelo1,
+  },
+  
+  // New Projects from Documents (Ga-Rankuwa Developments)
+  {
+    slug: 'ga-rankuwa-residential',
+    title: 'Ga-Rankuwa Residential Development',
+    category: 'Residential',
+    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    status: 'Ongoing',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
+  },
+  {
+    slug: 'ga-rankuwa-student-accommodation',
+    title: 'Ga-Rankuwa Student Accommodation',
+    category: 'Student Housing',
+    location: 'Ga-Rankuwa Unit 9, Pretoria',
+    status: 'Ongoing',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&h=400&fit=crop',
+  },
+  
+  // Other BeMore Properties Own Projects
+  {
+    slug: '125-village-hub',
+    title: '125 Village Hub',
+    category: 'Mixed Use',
+    location: 'Pretoria, South Africa',
+    status: 'Completed',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop',
+  },
+  {
+    slug: 'barui',
+    title: 'Barui',
+    category: 'Coming Soon',
+    location: 'Pretoria, South Africa',
+    status: 'Ongoing',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop',
+  },
+  {
+    slug: 'elnita',
+    title: 'Elnita',
+    category: 'Coming Soon',
+    location: 'Pretoria, South Africa',
+    status: 'Ongoing',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&h=400&fit=crop',
+  },
+  {
+    slug: 'hospital-coming-soon',
+    title: 'Hospital Development',
+    category: 'Coming Soon',
+    location: 'Pretoria, South Africa',
+    status: 'Planning',
+    type: 'BeMore Project',
+    image: 'https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&h=400&fit=crop',
+  },
+  
+  // Partner Projects
+  {
+    slug: 'partner-student-housing',
+    title: 'Student Housing Development',
+    category: 'Property Management',
+    location: 'Johannesburg, South Africa',
+    status: 'Completed',
+    type: 'Partner Project',
+    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=600&h=400&fit=crop',
+  },
+  {
+    slug: 'partner-mixed-use',
+    title: 'Mixed Use Complex',
+    category: 'Mixed Use',
+    location: 'Cape Town, South Africa',
+    status: 'Ongoing',
+    type: 'Partner Project',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop',
+  },
+  {
+    slug: 'partner-residential',
+    title: 'Residential Estate',
+    category: 'Property Management',
+    location: 'Durban, South Africa',
+    status: 'Completed',
+    type: 'Partner Project',
+    image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop',
+  },
+];
 
-const categories = ['All', 'Student Accommodation', 'Residential', 'Mixed Use'];
+// Categories
+const categories = ['All', 'BeMore Projects', 'Partner Projects', 'Completed', 'Ongoing', 'Coming Soon', 'Property Management', 'Mixed Use', 'Residential', 'Student Housing'];
 
 export default function Projects() {
   const [active, setActive] = useState('All');
 
-  const filtered = active === 'All' ? projects : projects.filter(p => p.category === active);
+  const filtered = active === 'All' 
+    ? projectsData 
+    : active === 'BeMore Projects' 
+    ? projectsData.filter(p => p.type === 'BeMore Project')
+    : active === 'Partner Projects'
+    ? projectsData.filter(p => p.type === 'Partner Project')
+    : projectsData.filter(p => p.status === active || p.category === active);
 
   return (
     <div className="bg-black">
@@ -87,7 +232,7 @@ export default function Projects() {
               Our <span className="text-yellow-600">Projects</span>
             </h1>
             <p className="mt-4 text-lg text-white/60 max-w-xl">
-              A curated portfolio of developments across student accommodation, residential, and mixed-use sectors.
+              A curated portfolio of developments including our own projects and partner collaborations across South Africa.
             </p>
           </motion.div>
         </div>

@@ -32,7 +32,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-px bg-yellow-600" />
             <span className="text-[11px] tracking-[0.3em] uppercase text-yellow-600 font-body">
-              BeMore Properties · Architecture · Construction · Investment
+              BeMore Properties · Architecture · Construction
             </span>
           </div>
         </motion.div>
@@ -53,8 +53,8 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mt-8 text-base sm:text-lg text-white/60 max-w-xl leading-relaxed font-body font-light"
         >
-          A turnkey property development firm creating and capturing value across the African continent. 
-          Over R300 million in developed assets and pressing toward R1 billion.
+          A turnkey property development firm creating and capturing value across South Africa. 
+          Over R500 million in developed assets and pressing toward R10 billion.
         </motion.p>
 
         <motion.div
@@ -69,12 +69,6 @@ export default function HeroSection() {
           >
             View Projects
             <ArrowDownRight className="w-4 h-4" />
-          </Link>
-          <Link
-            to="/investments"
-            className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white text-[13px] tracking-[0.15em] uppercase hover:border-yellow-600 hover:text-yellow-600 transition-all duration-300"
-          >
-            Investment Opportunities
           </Link>
         </motion.div>
 

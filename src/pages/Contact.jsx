@@ -67,15 +67,17 @@ const Select = ({ value, onValueChange, placeholder, options = [] }) => (
 const contactInfo = [
   { icon: MapPin, label: 'Address', value: '125 Madiba Rd, Pretoria CBD, South Africa' },
   { icon: Phone, label: 'Phone', value: '+27 (012) 546 0966' },
-  { icon: Mail, label: 'Email', value: 'info@bemore.co.za' },
+  { icon: Mail, label: 'Email', value: 'info@bemoreproperties.co.za' },
   { icon: Clock, label: 'Office Hours', value: 'Monday – Friday: 08:00 – 17:00' },
 ];
 
+// Updated inquiry options with generic and specific ones
 const inquiryOptions = [
-  { value: 'investment', label: 'Investment Opportunity' },
-  { value: 'development', label: 'Property Development' },
-  { value: 'partnership', label: 'Partnership' },
-  { value: 'student', label: 'Student Accommodation' },
+  { value: 'property-development', label: 'Property Development' },
+  { value: 'project-management', label: 'Project Management' },
+  { value: 'architecture', label: 'Architecture & Design' },
+  { value: 'property-management', label: 'Property Management' },
+  { value: 'partnership', label: 'Partnership / Joint Venture' },
   { value: 'general', label: 'General Inquiry' },
 ];
 
@@ -113,7 +115,7 @@ export default function Contact() {
               Contact <span className="text-yellow-600">Us</span>
             </h1>
             <p className="mt-4 text-lg text-white/60 max-w-xl">
-              Whether you're exploring investment opportunities or planning your next development, we're here to help.
+              Whether you're planning your next development or need expert consulting, we're here to help.
             </p>
           </motion.div>
         </div>
@@ -145,7 +147,7 @@ export default function Contact() {
                 <h3 className="text-sm font-semibold text-white mb-2">Be More Group</h3>
                 <p className="text-xs text-white/40 leading-relaxed">
                   BeMore Properties is a subsidiary of the Be More Group of companies, 
-                  dedicated to building African legacy through property development.
+                  dedicated to building South African legacy through property development.
                 </p>
               </div>
             </AnimatedSection>

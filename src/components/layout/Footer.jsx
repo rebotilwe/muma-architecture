@@ -8,7 +8,6 @@ const footerLinks = [
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Investments', path: '/investments' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -16,7 +15,7 @@ const footerLinks = [
 const groupLinks = [
   { label: 'PORMAT', url: 'https://pormat.co.za/' },
   { label: 'MUMA Consulting', url: 'https://www.muma.co.za/' },
-  { label: 'Legacy Projects', url: 'https://www.muma.co.za/' },
+  { label: 'MUMA Investment', url: 'https://legacy-projects.netlify.app/' },
 ];
 
 export default function Footer() {
@@ -53,7 +52,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-sm text-white/60 leading-relaxed max-w-xs">
-              Architecture, Construction & Property Investments. Building the African legacy through visionary development and strategic investment.
+              Architecture, Construction & Development Consulting. Building South Africa's legacy through visionary property development.
             </p>
           </div>
 
@@ -107,7 +106,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 group">
                 <Mail className="w-4 h-4 text-yellow-600 shrink-0" />
-                <span className="text-sm text-white/60 group-hover:text-white transition-colors">info@bemore.co.za</span>
+                <span className="text-sm text-white/60 group-hover:text-white transition-colors">info@bemoreproperties.co.za</span>
               </div>
               <div className="flex items-center gap-3 group">
                 <Clock className="w-4 h-4 text-yellow-600 shrink-0" />

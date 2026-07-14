@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Target, Eye, Shield, Building2, Users, TrendingUp } from 'lucide-react';
+import { ArrowRight, Target, Eye, Shield, Building2, TrendingUp, Diamond } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Import your downloaded images
@@ -53,17 +53,34 @@ const milestones = [
   { year: '2024', title: 'Billion-Rand Vision', description: 'Pipeline projects exceed R1 billion. Expansion into mixed-use developments and investment partnerships.' },
 ];
 
+// Updated values with the new content
 const values = [
-  { icon: Target, title: 'Vision', description: 'To be the leading African property development group, creating generational wealth through visionary development.' },
-  { icon: Eye, title: 'Mission', description: 'Facilitating economic participation of property entrepreneurs across the African continent through turnkey solutions.' },
-  { icon: Shield, title: 'Values', description: 'Excellence, integrity, customer-centricity, and a relentless commitment to quality in every project we undertake.' },
+  { 
+    icon: Eye, 
+    title: 'Vision', 
+    description: 'Inspiring people to be more!!' 
+  },
+  { 
+    icon: Target, 
+    title: 'Mission', 
+    description: 'By creating value, Proclaiming new standards, Innovative, Competitive, and Attractive Public Company' 
+  },
+  { 
+    icon: Diamond, 
+    title: 'Objective', 
+    description: 'Create an enabling platform where people can express themselves and enterprise portfolios in line with the BeMore ethos, with a R100bn diverse portfolio by 2035.' 
+  },
+  { 
+    icon: Shield, 
+    title: 'Values', 
+    description: 'Integrity, Innovation, Collaboration, Excellence, Sustainability, Empowerment' 
+  },
 ];
 
-// Additional stats for about page
+// Additional stats for about page - removed 50+ team members
 const stats = [
-  { value: 'R300M+', label: 'Assets Under Management', icon: TrendingUp },
-  { value: '16+', label: 'Years Experience', icon: Building2 },
-  { value: '50+', label: 'Team Members', icon: Users },
+  { value: 'R500M+', label: 'Assets Under Management', icon: TrendingUp },
+  { value: '18+', label: 'Years Experience', icon: Building2 },
 ];
 
 export default function About() {
@@ -89,26 +106,26 @@ export default function About() {
         </div>
       </section>
 
-      {/* Intro - Using Winchester image */}
+      {/* Intro - Updated with project management, development consulting, and architecture */}
       <section className="py-24 px-[5vw]">
         <div className="grid lg:grid-cols-2 gap-16">
           <AnimatedSection>
             <h2 className="font-display text-3xl sm:text-4xl font-light text-white leading-tight mb-6">
-              A Leading Property Development<br />
-              <span className="text-yellow-600">Consulting Firm</span>
+              Project Management, Architecture &<br />
+              <span className="text-yellow-600">Development Consulting</span>
             </h2>
             <div className="space-y-4 text-white/60 leading-relaxed">
               <p>
-                BeMore Properties is a leading African property development, architecture, and construction firm. 
-                With over 16 years in the built environment, we have developed a value proposition built with the customer in mind.
+                BeMore Properties is a leading project management, architecture, and development consulting firm. 
+                With over 18 years in the built environment, we have developed a value proposition built with the customer in mind.
               </p>
               <p>
                 Our results and experience working with clients is evident in the projects we have taken to site. 
                 From training aspiring developers to having projects started and fully delivered on time, 
-                we are the definitive partner for property entrepreneurs across Africa.
+                we are the definitive partner for property entrepreneurs across South Africa.
               </p>
               <p>
-                We have grown our property portfolio to over R300 million and are pressing toward the R1 billion mark, 
+                We have grown our property portfolio to over R500 million and are pressing toward the R10 billion mark, 
                 with a pipeline of transformative residential, student accommodation, and mixed-use developments.
               </p>
             </div>
@@ -128,9 +145,9 @@ export default function About() {
 
       <GoldLine className="mx-[5vw]" />
 
-      {/* Stats Section */}
+      {/* Stats Section - Updated with 2 stats instead of 3 */}
       <section className="py-16 px-[5vw]">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
           {stats.map((stat, i) => (
             <AnimatedSection key={stat.label} delay={i * 0.1}>
               <GlassCard className="p-8 text-center">
@@ -145,13 +162,13 @@ export default function About() {
 
       <GoldLine className="mx-[5vw]" />
 
-      {/* Values */}
+      {/* Values - Updated with new content */}
       <section className="py-24 px-[5vw]">
         <AnimatedSection>
           <SectionLabel>Our Foundation</SectionLabel>
-          <h2 className="font-display text-4xl font-light text-white mb-12">Vision, Mission & Values</h2>
+          <h2 className="font-display text-4xl font-light text-white mb-12">Vision, Mission, Objective & Values</h2>
         </AnimatedSection>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((item, i) => (
             <AnimatedSection key={item.title} delay={i * 0.1}>
               <GlassCard className="p-8 h-full">
@@ -205,7 +222,7 @@ export default function About() {
               Ready to Build Your Legacy?
             </h2>
             <p className="text-white/60 mb-8">
-              Partner with BeMore Properties and join a network of visionary investors and developers shaping the African landscape.
+              Partner with BeMore Properties and join a network of visionary developers shaping the South African landscape.
             </p>
             <Link
               to="/contact"

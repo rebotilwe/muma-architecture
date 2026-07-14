@@ -8,7 +8,6 @@ const navLinks = [
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Projects', path: '/projects' },
-  { label: 'Investments', path: '/investments' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -93,14 +92,14 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Legacy Project Link */}
+            {/* Legacy Project Link - Updated to MUMA Consulting (Legacy Project) */}
             <a
               href="https://legacy-projects.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-[11px] xl:text-[12px] tracking-[0.15em] uppercase font-body text-white/70 hover:text-yellow-600 transition-colors duration-300 whitespace-nowrap"
             >
-              Legacy Project
+              MUMA Investment (Legacy Project)
             </a>
 
             {/* Group Companies Dropdown */}
@@ -219,7 +218,7 @@ export default function Navbar() {
                   </motion.div>
                 ))}
 
-                {/* Legacy Project - Mobile */}
+                {/* Legacy Project - Mobile - Updated to MUMA Consulting (Legacy Project) */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -233,7 +232,7 @@ export default function Navbar() {
                     className="font-display text-2xl sm:text-3xl font-light tracking-wider text-white hover:text-yellow-600 transition-colors block py-2"
                     onClick={() => setMenuOpen(false)}
                   >
-                    Legacy Project
+                    MUMA Consulting (Legacy Project)
                   </a>
                 </motion.div>
 

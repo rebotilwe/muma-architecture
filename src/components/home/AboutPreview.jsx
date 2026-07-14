@@ -31,15 +31,15 @@ export default function AboutPreview() {
           <SectionLabel>Who We Are</SectionLabel>
           <h2 className="font-display text-4xl sm:text-5xl font-light text-white mb-6 leading-tight">
             Visionary Development,<br />
-            <span className="text-yellow-600">Exceptional Returns</span>
+            <span className="text-yellow-600">Expert Consulting</span>
           </h2>
           <p className="text-base text-gray-400 leading-relaxed mb-4">
-            BeMore Properties is a leading African property development, architecture, and construction firm. 
-            We have grown our property portfolio to over R300 million over 16 years of built environment expertise.
+            BeMore Properties is a leading African property development and consulting firm. 
+            We have grown our property portfolio to over R500 million over 18 years of built environment expertise.
           </p>
           <p className="text-base text-gray-400 leading-relaxed mb-8">
-            From training aspiring developers to delivering turnkey developments, we create and capture value 
-            for property entrepreneurs across the African continent.
+            Whether you're starting your first development or expanding your portfolio, 
+            our team is ready to make your vision a reality.
           </p>
           <Link
             to="/about"
@@ -58,7 +58,7 @@ export default function AboutPreview() {
               className="w-full aspect-[4/3] object-cover rounded-lg"
             />
             <div className="absolute -bottom-6 -left-6 bg-gray-900 border border-yellow-600/20 p-6 rounded-lg hidden sm:block">
-              <p className="font-display text-3xl text-yellow-600 font-light">16+</p>
+              <p className="font-display text-3xl text-yellow-600 font-light">18+</p>
               <p className="text-xs text-gray-400 tracking-wider uppercase">Years of Excellence</p>
             </div>
           </div>

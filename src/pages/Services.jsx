@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Compass, Building2, Hammer, TrendingUp, GraduationCap, ClipboardCheck } from 'lucide-react';
+import { ArrowRight, Compass, Building2, ClipboardCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Import your downloaded images
@@ -40,11 +40,11 @@ const GlassCard = ({ children, className = "" }) => (
   </div>
 );
 
-// Services Data
+// Updated Services Data - Removed Construction, Investment, Student Accommodation
 const services = [
   {
     title: "Property Development",
-    description: "End-to-end residential, commercial, and mixed-use property development tailored for modern African urban environments.",
+    description: "End-to-end residential, commercial, and mixed-use property development tailored for modern South African urban environments.",
     icon: "Compass",
   },
   {
@@ -58,24 +58,14 @@ const services = [
     icon: "Building2",
   },
   {
-    title: "Construction Services",
-    description: "Expert construction management with strict quality control, delivering projects on time and within budget.",
-    icon: "Hammer",
-  },
-  {
-    title: "Investment Solutions",
-    description: "Strategic property investment opportunities designed to create sustainable long-term value and growth.",
-    icon: "TrendingUp",
-  },
-  {
-    title: "Student Accommodation",
-    description: "Purpose-built student housing developments designed for security, comfort, connectivity, and modern living.",
-    icon: "GraduationCap",
+    title: "Property Management",
+    description: "Comprehensive property management services ensuring optimal performance, maintenance, and value appreciation of your assets.",
+    icon: "Building2",
   },
 ];
 
 const iconMap = {
-  Compass, Building2, Hammer, TrendingUp, GraduationCap, ClipboardCheck,
+  Compass, Building2, ClipboardCheck,
 };
 
 export default function Services() {
@@ -109,11 +99,11 @@ export default function Services() {
           </h2>
           <p className="text-white/60 leading-relaxed">
             From architectural concept to completed development, BeMore Properties delivers end-to-end solutions 
-            for property developers, investors, and entrepreneurs seeking excellence in the African built environment.
+            for property developers and entrepreneurs seeking excellence in the South African built environment.
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, i) => {
             const Icon = iconMap[service.icon];
             return (
@@ -148,10 +138,10 @@ export default function Services() {
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { num: '01', title: 'Consultation', desc: 'Understanding your vision, goals, and investment parameters.' },
+              { num: '01', title: 'Consultation', desc: 'Understanding your vision, goals, and project parameters.' },
               { num: '02', title: 'Design & Planning', desc: 'Architectural design, feasibility studies, and regulatory approvals.' },
-              { num: '03', title: 'Development', desc: 'Expert construction management with strict quality control.' },
-              { num: '04', title: 'Delivery', desc: 'On-time handover with ongoing portfolio management support.' },
+              { num: '03', title: 'Development', desc: 'Expert project management with strict quality control.' },
+              { num: '04', title: 'Delivery', desc: 'On-time handover with ongoing property management support.' },
             ].map((step, i) => (
               <AnimatedSection key={step.num} delay={i * 0.1}>
                 <div className="relative p-6 rounded-lg bg-black/50 backdrop-blur-sm border border-yellow-600/10 hover:border-yellow-600/30 transition-all duration-300">
@@ -195,71 +185,8 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Project Showcase Gallery */}
-      <section className="py-24 px-[5vw] bg-gray-900/30">
-        <AnimatedSection>
-          <SectionLabel>Our Work</SectionLabel>
-          <h2 className="font-display text-4xl font-light text-white mb-12">Recent Developments</h2>
-        </AnimatedSection>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <AnimatedSection delay={0.1}>
-            <div className="relative overflow-hidden rounded-lg group">
-              <img 
-                src={Varsity1} 
-                alt="Varsity Living" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-yellow-600 text-sm font-display">Varsity Living</p>
-                <p className="text-white/60 text-xs">Student Accommodation</p>
-              </div>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <div className="relative overflow-hidden rounded-lg group">
-              <img 
-                src={Thuto1} 
-                alt="Thuto Residence" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-yellow-600 text-sm font-display">Thuto Residence</p>
-                <p className="text-white/60 text-xs">Student Accommodation</p>
-              </div>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3}>
-            <div className="relative overflow-hidden rounded-lg group">
-              <img 
-                src={Celestial1} 
-                alt="The Celestial" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-yellow-600 text-sm font-display">The Celestial</p>
-                <p className="text-white/60 text-xs">Mixed Use Development</p>
-              </div>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.4}>
-            <div className="relative overflow-hidden rounded-lg group">
-              <img 
-                src={Kaelo1} 
-                alt="Kaelo Student Rez" 
-                className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-yellow-600 text-sm font-display">Kaelo Student Rez</p>
-                <p className="text-white/60 text-xs">Student Accommodation</p>
-              </div>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* Project Showcase Gallery - Removed */}
+      {/* The projects section has been removed as requested */}
     </div>
   );
 }

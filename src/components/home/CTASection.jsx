@@ -33,15 +33,15 @@ export default function CTASection() {
           <span className="text-yellow-600">Starts Here</span>
         </h2>
         <p className="text-lg text-white/60 leading-relaxed mb-10">
-          Whether you're an investor seeking premium returns or an aspiring developer building your portfolio, 
-          BeMore Properties is your partner in creating generational wealth through property.
+          Whether you're a property entrepreneur or an aspiring developer, 
+          BeMore Properties is your partner in building a successful future through property development.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link
-            to="/investments"
+            to="/projects"
             className="inline-flex items-center gap-3 px-8 py-4 bg-yellow-600 text-black text-[13px] tracking-[0.15em] uppercase font-medium hover:bg-yellow-500 transition-colors duration-300"
           >
-            Explore Investments
+            View Projects
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
