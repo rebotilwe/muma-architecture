@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useForm, ValidationError } from '@formspree/react';
 
 // Animated Section Component
 const AnimatedSection = ({ children, delay = 0, className = "" }) => (
@@ -71,7 +72,7 @@ const contactInfo = [
   { icon: Clock, label: 'Office Hours', value: 'Monday – Friday: 08:00 – 17:00' },
 ];
 
-// Inquiry options — each value is now unique (see note below)
+// Inquiry options
 const inquiryOptions = [
   { value: 'property-development', label: 'Property Development' },
   { value: 'project-management', label: 'Project Management' },
@@ -80,32 +81,39 @@ const inquiryOptions = [
   { value: 'partnership', label: 'Partnership / Joint Venture' },
   { value: 'general', label: 'General Inquiry' },
 ];
-// NOTE: 'Project Management' and 'Property Management' previously both used the
-// value 'property-management'. That caused a React duplicate-key warning on the
-// <option> elements, and meant selecting 'Project Management' would silently
-// submit 'property-management' as the inquiry type — so submissions could never
-// actually distinguish the two. Property Management now uses
-// 'property-management-services' instead.
 
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm('xykrkgvl');
   const [form, setForm] = useState({
-    firstName: '', lastName: '', email: '', phone: '', inquiry: '', message: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    inquiry: '',
+    message: '',
   });
 
   const handleChange = (field, value) => setForm(prev => ({ ...prev, [field]: value }));
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', form);
-    setSubmitted(true);
-    // Reset form after submission
-    setTimeout(() => {
-      setForm({ firstName: '', lastName: '', email: '', phone: '', inquiry: '', message: '' });
-      setSubmitted(false);
-    }, 5000);
+    // Submit the form data to Formspree
+    handleSubmit(e);
   };
+
+  // Reset form when submission is successful
+  if (state.succeeded) {
+    setTimeout(() => {
+      setForm({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        inquiry: '',
+        message: '',
+      });
+    }, 100);
+  }
 
   return (
     <div className="bg-black">
@@ -163,7 +171,7 @@ export default function Contact() {
           <div className="lg:col-span-3">
             <AnimatedSection delay={0.2}>
               <GlassCard className="p-8">
-                {submitted ? (
+                {state.succeeded ? (
                   <div className="text-center py-12">
                     <div className="w-16 h-16 rounded-full bg-emerald-600/20 flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-8 h-8 text-emerald-500" />
@@ -172,7 +180,7 @@ export default function Contact() {
                     <p className="text-white/60">Our team will respond to your inquiry within 24 hours.</p>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form onSubmit={onSubmit} className="space-y-6">
                     <h3 className="font-display text-2xl font-light text-white mb-2">Send Us a Message</h3>
                     <p className="text-sm text-white/60 mb-6">Our team will respond promptly to your request.</p>
 
@@ -181,19 +189,23 @@ export default function Contact() {
                         <label className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2 block">First Name *</label>
                         <Input
                           required
+                          name="firstName"
                           value={form.firstName}
                           onChange={(e) => handleChange('firstName', e.target.value)}
                           placeholder="John"
                         />
+                        <ValidationError field="firstName" errors={state.errors} className="text-red-500 text-xs mt-1" />
                       </div>
                       <div>
                         <label className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2 block">Last Name *</label>
                         <Input
                           required
+                          name="lastName"
                           value={form.lastName}
                           onChange={(e) => handleChange('lastName', e.target.value)}
                           placeholder="Doe"
                         />
+                        <ValidationError field="lastName" errors={state.errors} className="text-red-500 text-xs mt-1" />
                       </div>
                     </div>
 
@@ -203,14 +215,17 @@ export default function Contact() {
                         <Input
                           required
                           type="email"
+                          name="email"
                           value={form.email}
                           onChange={(e) => handleChange('email', e.target.value)}
                           placeholder="john@example.com"
                         />
+                        <ValidationError field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
                       </div>
                       <div>
                         <label className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2 block">Phone</label>
                         <Input
+                          name="phone"
                           value={form.phone}
                           onChange={(e) => handleChange('phone', e.target.value)}
                           placeholder="+27 ..."
@@ -226,24 +241,28 @@ export default function Contact() {
                         placeholder="Select inquiry type"
                         options={inquiryOptions}
                       />
+                      <ValidationError field="inquiry" errors={state.errors} className="text-red-500 text-xs mt-1" />
                     </div>
 
                     <div>
                       <label className="text-[10px] tracking-[0.2em] uppercase text-white/40 mb-2 block">Message *</label>
                       <Textarea
                         required
+                        name="message"
                         value={form.message}
                         onChange={(e) => handleChange('message', e.target.value)}
                         className="min-h-[120px]"
                         placeholder="Tell us about your inquiry..."
                       />
+                      <ValidationError field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-yellow-600 text-black text-[13px] tracking-[0.15em] uppercase font-medium hover:bg-yellow-500 transition-colors rounded-lg"
+                      disabled={state.submitting}
+                      className="w-full flex items-center justify-center gap-3 px-8 py-4 bg-yellow-600 text-black text-[13px] tracking-[0.15em] uppercase font-medium hover:bg-yellow-500 transition-colors rounded-lg disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Send Message
+                      {state.submitting ? 'Sending...' : 'Send Message'}
                       <Send className="w-4 h-4" />
                     </button>
                   </form>
