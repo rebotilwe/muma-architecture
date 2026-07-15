@@ -18,7 +18,11 @@ const navLinks = [
 const groupLinks = [
   { label: 'PORMAT', url: 'https://www.pormat.co.za/', description: 'Construction & Development' },
   { label: 'MUMA Consulting', url: 'https://www.muma.co.za/', description: 'Professional Services' },
+  { label: 'MUMA Investment', url: 'https://legacy-projects.netlify.app/', description: 'Legacy Project' },
 ];
+
+// BeMore SME/funding application platform (separate site)
+const APPLY_NOW_URL = 'https://bemore-platform.vercel.app/#/gateway';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -74,7 +78,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation - Visible on large screens */}
-          <div className="hidden xl:flex items-center gap-4 xl:gap-6">
+          <div className="hidden xl:flex items-center gap-3 xl:gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -88,15 +92,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-
-            <a
-              href="https://legacy-projects.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] xl:text-[12px] tracking-[0.15em] uppercase font-body text-white/70 hover:text-yellow-600 transition-colors duration-300 whitespace-nowrap"
-            >
-              MUMA Investment (Legacy Project)
-            </a>
 
             <div className="relative dropdown-container">
               <button
@@ -141,9 +136,19 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
+            {/* Apply Now — links out to the BeMore application platform, opens in a new tab */}
+            <a
+              href={APPLY_NOW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-1 px-3 xl:px-5 py-2 xl:py-2.5 border border-yellow-600 text-yellow-600 text-[10px] xl:text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-yellow-600/10 transition-all duration-300 whitespace-nowrap rounded-lg"
+            >
+              Apply Now
+            </a>
+
             <Link
               to="/contact"
-              className="ml-2 px-4 xl:px-6 py-2 xl:py-2.5 bg-yellow-600 text-black text-[10px] xl:text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-yellow-500 transition-all duration-300 whitespace-nowrap rounded-lg shadow-lg shadow-yellow-600/20"
+              className="px-3 xl:px-5 py-2 xl:py-2.5 bg-yellow-600 text-black text-[10px] xl:text-[11px] tracking-[0.15em] uppercase font-semibold hover:bg-yellow-500 transition-all duration-300 whitespace-nowrap rounded-lg shadow-lg shadow-yellow-600/20"
             >
               Book Consultation
             </Link>
@@ -209,23 +214,6 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="w-full text-center"
-                >
-                  <a
-                    href="https://legacy-projects.netlify.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-display text-2xl sm:text-3xl font-light tracking-wider text-white hover:text-yellow-600 transition-colors block py-2"
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    MUMA Consulting (Legacy Project)
-                  </a>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.35 }}
                   className="flex flex-col items-center gap-3 sm:gap-4 mt-2 w-full"
                 >
                   <p className="text-[10px] sm:text-xs tracking-[0.2em] uppercase text-yellow-600/70">Group Companies</p>
@@ -247,8 +235,25 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.45 }}
                 className="w-full max-w-xs mt-2"
+              >
+                <a
+                  href={APPLY_NOW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-6 sm:px-10 py-3 sm:py-4 border border-yellow-600 text-yellow-600 text-sm tracking-[0.2em] uppercase font-semibold hover:bg-yellow-600/10 transition-all duration-300 rounded-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Apply Now
+                </a>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="w-full max-w-xs"
               >
                 <Link
                   to="/contact"
