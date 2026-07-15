@@ -11,6 +11,7 @@ import SelmaPhofaImg from '../../assets/images/selma.jpg';
 import VictorMoagiImg from '../../assets/images/victor.jpg';
 import DandyMatamelaImg from '../../assets/images/dandy.jpg';
 import DollyChiloaneImg from '../../assets/images/dolly.jpg';
+import Rudolf from '../../assets/images/rudolf.jpeg';
 
 const teamMembersData = [
   {
@@ -46,7 +47,8 @@ const teamMembersData = [
     name: 'Rudolf Mokolo',
     role: 'Business Development Lead',
     bio: 'Professional Town Planner driving partnerships, project packaging, and stakeholder engagement, with 5+ years in property development.',
-    image: null,
+    image: Rudolf,
+    imagePosition: 'center 20%',
   },
   {
     id: 6,
@@ -58,15 +60,19 @@ const teamMembersData = [
   {
     id: 7,
     name: 'Mpho Munyai',
-    role: 'Role to be confirmed',
-    bio: '',
+    role: 'Architect',
+    // Draft bio only — no specifics (experience, focus area, qualifications) confirmed yet.
+    // Replace with real details once Mr Sthole provides them.
+    bio: 'Part of BeMore\u2019s architecture team, contributing to the design and technical execution of the group\u2019s residential and student accommodation developments.',
     image: MphoMunyaiImg,
   },
   {
     id: 8,
     name: 'Victor Moagi',
-    role: 'Role to be confirmed',
-    bio: '',
+    role: 'Architect',
+    // Draft bio only — no specifics (experience, focus area, qualifications) confirmed yet.
+    // Replace with real details once Mr Sthole provides them.
+    bio: 'Part of BeMore\u2019s architecture team, contributing to the design and technical execution of the group\u2019s residential and student accommodation developments.',
     image: VictorMoagiImg,
   },
 ];
@@ -79,7 +85,8 @@ const TeamMemberCard = ({ member }) => {
           <img
             src={member.image}
             alt={member.name}
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: member.imagePosition || 'top' }}
           />
         ) : (
           <div className="flex flex-col items-center justify-center text-gray-600">
