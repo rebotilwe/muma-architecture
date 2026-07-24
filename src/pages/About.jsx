@@ -139,6 +139,28 @@ export default function About() {
 
       <GoldLine className="mx-[5vw]" />
 
+      {/* Video */}
+      <section className="py-24 px-[5vw]">
+        <AnimatedSection>
+          <SectionLabel>See Our Story</SectionLabel>
+          <h2 className="font-display text-4xl font-light text-white mb-12">BeMore Properties in Motion</h2>
+        </AnimatedSection>
+        <AnimatedSection delay={0.1}>
+          <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-lg overflow-hidden border border-yellow-600/10">
+            <iframe
+              src="https://player.cloudinary.com/embed/?cloud_name=xfibrl4d&public_id=Video_Project_spkosk"
+              className="absolute inset-0 w-full h-full"
+              allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+              allowFullScreen
+              frameBorder="0"
+              title="BeMore Properties Video"
+            />
+          </div>
+        </AnimatedSection>
+      </section>
+
+      <GoldLine className="mx-[5vw]" />
+
       {/* Stats */}
       <section className="py-16 px-[5vw]">
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">

@@ -17,7 +17,7 @@ const navLinks = [
 // External links for dropdown
 const groupLinks = [
   { label: 'PORMAT', url: 'https://www.pormat.co.za/', description: 'Construction & Development' },
-  { label: 'MUMA Consulting', url: 'https://www.muma.co.za/', description: 'Professional Services' },
+  // { label: 'MUMA Consulting', url: 'https://www.muma.co.za/', description: 'Professional Services' },
   { label: 'MUMA Investment', url: 'https://legacy-projects.netlify.app/', description: 'Legacy Project' },
 ];
 

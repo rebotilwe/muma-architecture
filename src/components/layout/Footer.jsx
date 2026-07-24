@@ -13,7 +13,7 @@ const footerLinks = [
 
 const groupLinks = [
   { label: 'PORMAT', url: 'https://pormat.co.za/' },
-  { label: 'MUMA Consulting', url: 'https://www.muma.co.za/' },
+  // { label: 'MUMA Consulting', url: 'https://www.muma.co.za/' },
   { label: 'MUMA Investment', url: 'https://legacy-projects.netlify.app/' },
 ];
 
